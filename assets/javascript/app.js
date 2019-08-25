@@ -10,7 +10,6 @@ $(document).on("click", "#end", function(){
 })
 
 $(document).on("click", "#try", function(){
-    clearInterval(timer);
     $("#subwrapper").empty();
     game.start();
 })
