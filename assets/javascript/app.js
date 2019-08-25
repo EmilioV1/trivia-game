@@ -60,16 +60,18 @@ var game = {
     correct: 0,
     incorrect: 0,
     counter: 120,
+
     countdown: function(){
         game.counter--;
         $("#counter").html(game.counter);
-        if(game.counter<= 0){
-            console.log("Time is up!");
+        if (game.counter <= 0){
+            console.log(" Time is up! ");
             game.done();
         }
     },
 
     start: function(){
+        timer = setInterval (game.countdown, 1000);
         // Removes start button
         $("#start").remove();
         // Appends questions and choices to the page
