@@ -1,0 +1,11 @@
+body{
+margin: 30px;
+};
+
+h1{
+    text-align: center;
+};
+
+body{
+    background-image: url("assets/images/glasses.jpg");
+}

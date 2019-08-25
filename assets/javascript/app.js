@@ -9,6 +9,10 @@ $(document).on("click", "#end", function(){
     game.done();
 })
 
+$(document).on("click", "#try", function(){
+    game.start();
+})
+
 // Array of questions with choices and answer key
 var questions = [{
 
@@ -89,7 +93,7 @@ var game = {
                 $("#subwrapper").append("<input type = 'radio' name = 'question-" + i + "'value = '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
             }
         }
-        $("#subwrapper").append(" <br> <button id = 'end'> DONE </button>")
+        $("#subwrapper").append(" <br> <br> <button id = 'end'type = 'button' class = 'btn btn-dark'> DONE! </button>")
     },
 
     // Checks if each question was correct or incorrect
@@ -187,5 +191,6 @@ var game = {
         $("#subwrapper").append("<h4> Correct Answers: " + this.correct);
         $("#subwrapper").append("<h4> Incorrect Answers: " + this.incorrect);
         $("#subwrapper").append("<h4> Unanswered: " + (questions.length - (this.correct + this.correct)) + "</h4");
+        $("#subwrapper").append(" <br> <br> <button id = 'try' type = 'button' class = 'btn btn-dark'> Try Again! </button>")
     },
 }
