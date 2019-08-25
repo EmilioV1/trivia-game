@@ -2,12 +2,12 @@
 $("#start").on("click", function(){
     // Calls start function to append question and choices
     game.start();
-});
+})
 
 // Looks for done button to be clicked and ends game
 $(document).on("click", "#end", function(){
     game.done();
-});
+})
 
 // Array of questions with choices and answer key
 var questions = [{
@@ -180,7 +180,7 @@ var game = {
     },
 
     // Clears current page state and appends results to page
-    results: function(){
+    result: function(){
         clearInterval(timer);
         $("#subwrapper h3").remove();
         $("#subwrapper").html("<h3> All done! </h3>");
