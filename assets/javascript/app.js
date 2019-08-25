@@ -62,3 +62,17 @@ correctAnswer: " Phoenix Feather "
 answers: [" Nimbus 2001 ", " Firebolt ", " Lightningbolt ", " Nimbus 2000 "],
 correctAnswer: " Firebolt "
 }];
+
+var game = {
+    correct: 0,
+    incorrect: 0,
+    counter: 120,
+    countdown: function(){
+        game.counter--;
+        $("#counter").html(game.counter);
+        if(game.counter<= 0){
+            console.log("Time is up!");
+            game.done();
+        }
+    }
+}
