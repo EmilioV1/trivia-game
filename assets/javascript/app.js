@@ -4,6 +4,7 @@ $("#start").on("click", function(){
     game.start();
 });
 
+// Array of questions with choices and answer key
 var questions = [{
 
 question: "What was the name of the Pygmy Puff Ginny bought from Weaslys' Wizard Wheezes?",
@@ -72,11 +73,13 @@ var game = {
 
     start: function(){
         timer = setInterval (game.countdown, 1000);
+        // Appends timer to page 
+        $("#subwrapper").prepend(" <h3> Time Remaining: <span id = 'counter'> 120 </span> Seconds </h3> ");
         // Removes start button
         $("#start").remove();
         // Appends questions and choices to the page
         for (var i = 0; i < questions.length; i++){
-            $("#subwrapper").append("<h3>" + questions[i].question + "</h3>");
+            $("#subwrapper").append(" <h3> " + questions[i].question + " </h3> ");
             for (var j = 0; j < questions[i].answers.length; j++){
                 $("#subwrapper").append("<input type = 'radio' name = 'question-" + i + "'value = '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
             }
