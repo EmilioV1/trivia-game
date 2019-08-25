@@ -84,6 +84,7 @@ var game = {
                 $("#subwrapper").append("<input type = 'radio' name = 'question-" + i + "'value = '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
             }
         }
+        $("#subwrapper").append(" <br> <button id = 'end'> DONE </button>")
     },
 
     // Checks if each question was correct or incorrect
@@ -168,5 +169,18 @@ var game = {
                 game.incorrect++;
             }
         });
+
+        // Calls result function
+        this.result();
+    },
+
+    // Clears current page state and appends results to page
+    results: function(){
+        clearInterval(timer);
+        $("#subwrapper h3").remove();
+        $("#subwrapper").html("<h3> All done! </h3>");
+        $("#subwrapper").append("<h4> Correct Answers: " + this.correct);
+        $("#subwrapper").append("<h4> Incorrect Answers: " + this.incorrect);
+        $("#subwrapper").append("<h4> Unanswered: " + (questions.length - (this.correct + this.correct)) + "</h4");
     }
 }
