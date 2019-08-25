@@ -4,6 +4,11 @@ $("#start").on("click", function(){
     game.start();
 });
 
+// Looks for done button to be clicked and ends game
+$(document).on("click", "#end", function(){
+    game.done();
+});
+
 // Array of questions with choices and answer key
 var questions = [{
 
@@ -182,5 +187,5 @@ var game = {
         $("#subwrapper").append("<h4> Correct Answers: " + this.correct);
         $("#subwrapper").append("<h4> Incorrect Answers: " + this.incorrect);
         $("#subwrapper").append("<h4> Unanswered: " + (questions.length - (this.correct + this.correct)) + "</h4");
-    }
+    },
 }
