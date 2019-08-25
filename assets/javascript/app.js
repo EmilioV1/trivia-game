@@ -191,7 +191,7 @@ var game = {
         $("#subwrapper").html("<h3> All done! </h3>");
         $("#subwrapper").append("<h4> Correct Answers: " + this.correct);
         $("#subwrapper").append("<h4> Incorrect Answers: " + this.incorrect);
-        $("#subwrapper").append("<h4> Unanswered: " + (questions.length - (this.correct + this.correct)) + "</h4");
+        $("#subwrapper").append("<h4> Unanswered: " + (questions.length - (this.correct + this.incorrect)) + "</h4");
         $("#subwrapper").append(" <br> <br> <button id = 'try' type = 'button' class = 'btn btn-dark'> Try Again! </button>")
     },
 }
