@@ -83,6 +83,8 @@ var game = {
 
     start: function(){
         timer = setInterval (game.countdown, 1000);
+        game.correct = 0;
+        game.incorrect = 0;
         // Appends timer to page 
         $("#subwrapper").prepend(" <h3> Time Remaining: <span id = 'counter'> 120 </span> Seconds </h3> ");
         // Removes start button
@@ -91,7 +93,7 @@ var game = {
         for (var i = 0; i < questions.length; i++){
             $("#subwrapper").append(" <h3> " + questions[i].question + " </h3> ");
             for (var j = 0; j < questions[i].answers.length; j++){
-                $("#subwrapper").append("<input type = 'radio' name = 'question-" + i + "'value = '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
+                $("#subwrapper").append("<input type = 'radio' name = 'question-" + [i] + "'value = '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
             }
         }
         $("#subwrapper").append(" <br> <br> <button id = 'end'type = 'button' class = 'btn btn-dark'> DONE! </button>")
@@ -99,99 +101,56 @@ var game = {
 
     // Checks if each question was correct or incorrect
     done: function(){
+        var question0 = $("input[name='question-0']:checked");
+        var question1 = $("input[name='question-1']:checked");
+        var question2 = $("input[name='question-2']:checked");
+        var question3 = $("input[name='question-3']:checked");
+        var question4 = $("input[name='question-4']:checked");
+        var question5 = $("input[name='question-5']:checked");
+        var question6 = $("input[name='question-6']:checked");
+        var question7 = $("input[name='question-7']:checked");
+        var question8 = $("input[name='question-8']:checked");
+        var question9 = $("input[name='question-9']:checked");
+        
+        checkAnswer(question0, questions[0].correctAnswer);
+        checkAnswer(question1, questions[1].correctAnswer);
+        checkAnswer(question2, questions[2].correctAnswer);
+        checkAnswer(question3, questions[3].correctAnswer);
+        checkAnswer(question4, questions[4].correctAnswer);
+        checkAnswer(question5, questions[5].correctAnswer);
+        checkAnswer(question6, questions[6].correctAnswer);
+        checkAnswer(question7, questions[7].correctAnswer);
+        checkAnswer(question8, questions[8].correctAnswer);
+        checkAnswer(question9, questions[9].correctAnswer);
 
-        $.each($(" input[name = 'question-0'] :checked"), function(){
-            if($(this).val() == questions[0].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-1'] :checked"), function(){
-            if($(this).val() == questions[1].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-2'] :checked"), function(){
-            if($(this).val() == questions[2].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-3'] :checked"), function(){
-            if($(this).val() == questions[3].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-4'] :checked"), function(){
-            if($(this).val() == questions[4].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-5'] :checked"), function(){
-            if($(this).val() == questions[5].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-6'] :checked"), function(){
-            if($(this).val() == questions[6].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-7'] :checked"), function(){
-            if($(this).val() == questions[7].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-8'] :checked"), function(){
-            if($(this).val() == questions[8].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
-        $.each($(" input[name = 'question-9'] :checked"), function(){
-            if($(this).val() == questions[9].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-
+        // if(question0.val() === questions[0].correctAnswer){
+        //     game.correct++;
+        // } else {
+        //     game.incorrect++;
+        // }
+       
         // Calls result function
         this.result();
     },
 
     // Clears current page state and appends results to page
     result: function(){
+
         clearInterval(timer);
         $("#subwrapper h3").remove();
         $("#subwrapper").html("<h3> All done! </h3>");
-        $("#subwrapper").append("<h4> Correct Answers: " + this.correct);
-        $("#subwrapper").append("<h4> Incorrect Answers: " + this.incorrect);
+        $("#subwrapper").append("<h4> Correct Answers: " + this.correct + "</h4>");
+        $("#subwrapper").append("<h4> Incorrect Answers: " + this.incorrect + "</h4>");
         $("#subwrapper").append("<h4> Unanswered: " + (questions.length - (this.correct + this.incorrect)) + "</h4");
         $("#subwrapper").append(" <br> <br> <button id = 'try' type = 'button' class = 'btn btn-dark'> Try Again! </button>")
     },
+}
+
+function checkAnswer(question, correctAnswer){
+
+    if(question.val() === correctAnswer){
+        game.correct++;
+    } else if(question.val()){
+        game.incorrect++;
+    }
 }
