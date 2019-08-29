@@ -82,6 +82,7 @@ var game = {
     },
 
     start: function(){
+    
         timer = setInterval (game.countdown, 1000);
         game.correct = 0;
         game.incorrect = 0;
