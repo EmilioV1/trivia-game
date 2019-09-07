@@ -11,6 +11,8 @@ $(document).on("click", "#end", function(){
 
 $(document).on("click", "#try", function(){
     $("#subwrapper").empty();
+    clearInterval();
+    game.counter = 120;
     game.start();
 })
 
@@ -74,6 +76,7 @@ var game = {
 
     countdown: function(){
         game.counter--;
+        console.log(game.counter);
         $("#counter").html(game.counter);
         if (game.counter <= 0){
             console.log(" Time is up! ");
@@ -138,6 +141,7 @@ var game = {
     result: function(){
 
         clearInterval(timer);
+        console.log(timer);
         $("#subwrapper h3").remove();
         $("#subwrapper").html("<h3> All done! </h3>");
         $("#subwrapper").append("<h4> Correct Answers: " + this.correct + "</h4>");
