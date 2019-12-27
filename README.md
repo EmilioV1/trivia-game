@@ -1,4 +1,4 @@
-# Harry-Potter-Trivia
+# Harry Potter Trivia
 
 Harry Potter Trivia is a multiple choice trivia game. Select all of your guesses within 2 minutes and click the done button to see how you did! Didn't do so well? Click try again to get another chance to prove yourself!!!
 
