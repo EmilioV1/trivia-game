@@ -6,7 +6,7 @@ Harry Potter Trivia is a multiple choice trivia game. Select all of your guesses
 
 Visit to the link below to jump right into the fun!
 
-https://nolimits1.github.io/trivia-game/
+https://emiliov1.github.io/trivia-game/
 
 
 ## Contributing
@@ -16,4 +16,4 @@ Please make sure to update tests as appropriate.
 
 ## Github Repository
 
-https://github.com/Nolimits1/trivia-game
+https://github.com/emiliov1/trivia-game
